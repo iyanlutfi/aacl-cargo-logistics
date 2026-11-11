@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --color-navy-950: #09182c;
+    --color-navy-900: #0f2744;
+    --color-navy-800: #17375e;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* Custom thin scrollbar for spreadsheet */
+.spreadsheet-scroll::-webkit-scrollbar {
+    height: 10px;
+    width: 8px;
+}
+.spreadsheet-scroll::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 9999px;
+}
+.spreadsheet-scroll::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 9999px;
+}
+.spreadsheet-scroll::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    html,
+    body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    main {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    /* Default Spreadsheet Landscape Print Mode */
+    body:not(.printing-cn) .print-cn-only,
+    body:not(.printing-cn) .print-cn-backdrop {
+        display: none !important;
+    }
+
+    body:not(.printing-cn) .spreadsheet-scroll,
+    body:not(.printing-cn) .spreadsheet-wrapper {
+        overflow: visible !important;
+        max-height: none !important;
+        height: auto !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+    }
+
+    body:not(.printing-cn) .print-header-only {
+        display: block !important;
+    }
+
+    body:not(.printing-cn) table#shipmentSpreadsheet {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        border-collapse: collapse !important;
+        font-size: 6.2pt !important;
+        line-height: 1.18 !important;
+        table-layout: fixed !important;
+    }
+
+    body:not(.printing-cn) table#shipmentSpreadsheet thead {
+        display: table-header-group !important;
+        position: static !important;
+    }
+
+    body:not(.printing-cn) table#shipmentSpreadsheet tfoot {
+        display: table-row-group !important;
+    }
+
+    body:not(.printing-cn) table#shipmentSpreadsheet tr {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    body:not(.printing-cn) table#shipmentSpreadsheet th,
+    body:not(.printing-cn) table#shipmentSpreadsheet td {
+        min-width: 0 !important;
+        max-width: none !important;
+        position: static !important;
+        padding: 2.5px 3px !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+        border: 1px solid #94a3b8 !important;
+    }
+
+    body:not(.printing-cn) .print-hide-col {
+        display: none !important;
+    }
+
+    /* Portrait Surat Jalan / Resi CN Print Mode */
+    body.printing-cn .print-hide-on-cn {
+        display: none !important;
+    }
+
+    body.printing-cn .print-cn-backdrop {
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    body.printing-cn .print-cn-only {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: none !important;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    body.printing-cn #cnPrintDocument {
+        overflow: visible !important;
+        max-height: none !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+}
